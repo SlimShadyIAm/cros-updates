@@ -1,0 +1,15 @@
+{
+  "name": "cros-updates",
+  "version": "1.0.0",
+  "description": "A node.js app that pushes changes to the Chrome Releases Blog RSS feed to the r/ChromeOS Discord server using a webhook and magic",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SlimShadyIAm",
+  "license": "ISC",
+  "dependencies": {
+    "feed-watcher": "^0.2.1",
+    "request": "^2.85.0"
+  }
+}
