@@ -4,11 +4,14 @@ var Watcher = require('feed-watcher'),
 var request = require('request');
 var webhookUrl = require('./webhookUrl.json'); // stores the URL the response needs to be sent to - secret!
 
+console.log("Starting watcher service...")
+
 var watcher = new Watcher(feedUrl, interval);
 
 watcher.on('new entries', function(entries) { // watch for new entries to the RSS feed
     entries.forEach(function(entry) {
         if (entry.categories.includes("Chrome OS")) { // filter out non-Chrome OS related posts
+            console.log("Attempting to send new post with title '" + entry.title + "'")
             var discordObj = { // build the response to send to Discord's webhook - base layout
                 "username": "Chrome Releases Blog", 
                 "avatar_url": "https://cdn.discordapp.com/emojis/363434654000349184.png?v=1",
@@ -35,13 +38,10 @@ watcher.on('new entries', function(entries) { // watch for new entries to the RS
             
             if (entry.categories.includes("Stable updates")) { // category based message for brief overview of the content 
                 var summary = "Information regarding a new stable update has been posted!";
-                return;    
             } else if (entry.categories.includes("Beta updates")) {
                 var summary = "Information regarding a new beta update has been posted!";
-                return;
             } else if (entry.categories.includes("Dev updates")) {
                 var summary = "Information regarding a new dev update has been posted!";
-                return;
             } else {
                 var summary = "A new update blog post has been posted!";
             }
@@ -69,6 +69,8 @@ watcher.on('new entries', function(entries) { // watch for new entries to the RS
                 console.log('error:', error); // Print the error if one occurred
                 console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
             })
+        } else {
+            console.log("Post filtered out, not ChromeOS related.");
         }
     })
 })
