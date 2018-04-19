@@ -35,7 +35,8 @@ watcher.on('new entries', function(entries) { // watch for new entries to the RS
             if (description.length > 150) { // truncate the description if more than 150 characters
                 description = description.substring(0, 150).concat("...");
             }
-            
+            description = description.replace(/<(?:.|\n)*?>/gm, ''); // for some reason they add HTML to the post content. Let's remove that.
+
             if (entry.categories.includes("Stable updates")) { // category based message for brief overview of the content 
                 var summary = "Information regarding a new stable update has been posted!";
             } else if (entry.categories.includes("Beta updates")) {
