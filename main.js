@@ -2,7 +2,7 @@ var Watcher = require('feed-watcher'),
     feedUrl = "http://googlechromereleases.blogspot.com/atom.xml",
     interval = 360; // interval to poll the feed in seconds
 var request = require('request');
-var webhookUrl = require('./webhookUrl.json'); // stores the URL the response needs to be sent to - secret!
+var webhookUrl = process.env.webhookUrl; // stores the URL the response needs to be sent to - secret!
 
 console.log("Starting watcher service...")
 
