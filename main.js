@@ -57,7 +57,7 @@ watcher.on('new entries', function(entries) { // watch for new entries to the RS
             
             // send the object via POST to Discord's webhook URL
 
-            var url = webhookUrl.url;
+            var url = webhookUrl;
             request({ 
                 url: url, 
                 method: "POST",
