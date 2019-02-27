@@ -39,14 +39,15 @@ watcher.on('new entries', function(entries) { // watch for new entries to the RS
                 description = description.substring(0, 150).concat("...");
             }
             
+            var summary = "<@&550382017213104147> "
             if (entry.categories.includes("Stable updates")) { // category based message for brief overview of the content 
-                var summary = "Information regarding a new stable update has been posted!";
+                summary += "Information regarding a new stable update has been posted!";
             } else if (entry.categories.includes("Beta updates")) {
-                var summary = "Information regarding a new beta update has been posted!";
+                summary += "Information regarding a new beta update has been posted!";
             } else if (entry.categories.includes("Dev updates")) {
-                var summary = "Information regarding a new dev update has been posted!";
+                summary += "Information regarding a new dev update has been posted!";
             } else {
-                var summary = "A new update blog post has been posted!";
+                summary += "A new update blog post has been posted!";
             }
 
             // add the information specific to the blog post to the response object
