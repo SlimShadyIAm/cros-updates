@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "feed-watcher": "^0.2.1",
-    "request": "^2.85.0"
+    "he": "^1.2.0",
+    "request": "^2.85.0",
+    "striptags": "^3.1.1"
   }
 }
