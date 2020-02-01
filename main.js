@@ -32,7 +32,7 @@ watcher.on("new entries", function(entries) {
 				content: determineCategory(entry.categories),
 				embeds: [
 					{
-						description: sanitizeDescription(entry.description),
+						description: sanitizeArticle(entry.description),
 						color: 3172587,
 						timestamp: entry.pubDate,
 						author: {
