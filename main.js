@@ -74,9 +74,7 @@ function determineCategory(categories) {
 	rolesToPing.map(role => {
 		if (categories.includes(role.name)) {
 			var updateType = role.name.substring(0, role.name.length - 1);
-			summary = `<@&${
-				rolesToPing[role.id]
-			}> Information regarding a new ${updateType} has been posted!`;
+			summary = `<@&${role.id}> Information regarding a new ${updateType} has been posted!`;
 		}
 	});
 	if (summary === "") {
